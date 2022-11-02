@@ -9,11 +9,11 @@ test('Punch', async t => {
         .click('[name="B1"]')
 
     if (process.env.ACTION === 'enter') {
-        await t.click("button.entry-btn");
+        await t.click("button.entry-btn").wait(1000);
     } else {
-        await t.click("button.exit-btn");
+        await t.click("button.exit-btn").wait(1000);
     }
-    
+
     const popup = Selector('div').withText('הצלחה');
-    await t.expect((popup).exists).ok()
-});
+    await t.expect((popup).exists).ok().wait(10000)
+});%
